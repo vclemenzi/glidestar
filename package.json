@@ -1,0 +1,15 @@
+{
+  "name": "glidestar",
+  "version": "1.0.0",
+  "description": "Make api just better",
+  "scripts": {
+    "build": "tsc"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/glidestar/glidestar",
+  "author": "Valerio Clemenzi",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.2"
+  }
+}
