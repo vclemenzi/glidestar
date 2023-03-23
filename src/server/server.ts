@@ -21,7 +21,20 @@ export function server(config: Config, callback?: (err: Error | null) => void) {
         const result = import(path.resolve(file));
 
         result.then((module) => {
-          module.default(req, res);
+          const instance = new module.default();
+
+          if (req.method === "GET") {
+            instance.get(req, res);
+          } else if (req.method === "POST") {
+            instance.post(req, res);
+          } else if (req.method === "PUT") {
+            instance.put(req, res);
+          } else if (req.method === "DELETE") {
+            instance.delete(req, res);
+          } else {
+            res.statusCode = 404;
+            res.end();
+          }
         });
       }
     }
