@@ -3,6 +3,9 @@ import { Config } from "../..";
 import { reader } from "./reader";
 import { clean } from "./clean";
 import path from "path";
+import { Request } from "../parser/Request";
+
+// TODO: use 'url' module to parse the url
 
 export function server(config: Config, callback?: (err: Error | null) => void) {
   const server = http.createServer((req, res) => {
@@ -11,7 +14,16 @@ export function server(config: Config, callback?: (err: Error | null) => void) {
     // /users == /users
     if ((req.url as string).endsWith("/") && (req.url as string).length > 1) {
       req.url = (req.url as string).slice(0, -1);
-    }                                     
+    } 
+    
+    // Params 
+    let params: string[] = [];
+
+    if (req.url?.includes("?")) {
+      params = (req.url as string).split("?")[1].split("&");
+
+      req.url = (req.url as string).replace(`?${params.join("&")}`, "");
+    }
 
     // Loop through the files and find the one that matches the request
     for (const file of files) {
@@ -23,14 +35,14 @@ export function server(config: Config, callback?: (err: Error | null) => void) {
         result.then((module) => {
           const instance = new module.default();
 
-          if (req.method === "GET") {
-            instance.get(req, res);
+          if (req.method === "GET") { 
+            instance.get(new Request(req, params), res);
           } else if (req.method === "POST") {
-            instance.post(req, res);
+            instance.post(new Request(req, params), res);
           } else if (req.method === "PUT") {
-            instance.put(req, res);
+            instance.put(new Request(req, params), res);
           } else if (req.method === "DELETE") {
-            instance.delete(req, res);
+            instance.delete(new Request(req, params), res);
           } else {
             res.statusCode = 404;
             res.end();
