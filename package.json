@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "description": "Make api just better",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "ts-node-dev ./test/index.ts"
   },
   "main": "index.js",
   "repository": "https://github.com/glidestar/glidestar",
   "author": "Valerio Clemenzi",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^18.15.5",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.0.2"
   }
 }
