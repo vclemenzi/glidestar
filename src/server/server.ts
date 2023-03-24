@@ -5,12 +5,16 @@ import { clean } from "./clean";
 import path from "path";
 import { Request } from "../parser/Request";
 import { Response } from "../parser/Response";
+import { logRequest, logServer } from "../log/log";
 
 // TODO: use 'url' module to parse the url
 
 export function server(config: Config, callback?: (err: Error | null) => void) {
   const server = http.createServer((req, res) => {
     const files = reader(config.dir);
+
+    // Logger
+    logRequest((req.method as string), (req.url as string));
 
     // /users == /users
     if ((req.url as string).endsWith("/") && (req.url as string).length > 1) {
@@ -58,6 +62,7 @@ export function server(config: Config, callback?: (err: Error | null) => void) {
   });
 
   server.listen(config.port || 8080, () => {
+    logServer(config.port)
     if (callback) {
       callback(null);
     }

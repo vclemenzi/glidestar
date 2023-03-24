@@ -47,6 +47,13 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.3.tgz#472eaab5f15c1ffdd7f8628bd4c4f753995ec79e"
   integrity sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==
 
+"@types/colors@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@types/colors/-/colors-1.2.1.tgz#57703f1a9f7f5fc40afb81eef13e96acdd1016a6"
+  integrity sha512-7jNkpfN2lVO07nJ1RWzyMnNhH/I5N9iWuMPx9pedptxJ4MODf8rRV0lbJi6RakQ4sKQk231Fw4e2W9n3D7gZ3w==
+  dependencies:
+    colors "*"
+
 "@types/cookie@^0.5.1":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@types/cookie/-/cookie-0.5.1.tgz#b29aa1f91a59f35e29ff8f7cb24faf1a3a750554"
@@ -134,6 +141,16 @@ chokidar@^3.5.1:
     readdirp "~3.6.0"
   optionalDependencies:
     fsevents "~2.3.2"
+
+colors.js@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/colors.js/-/colors.js-1.2.4.tgz#5380dd3941116786fbc055f4ea40202fcfe0a0f0"
+  integrity sha512-L0WwXcT55bCbziygKNCYRBfCpSqoDSFTFJ+8PlDBrDB3cyMd9QmAXGNkvNR9ptd5tUXpkHzjBYI7u2I9beW6Cg==
+
+colors@*:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/colors/-/colors-1.4.0.tgz#c50491479d4c1bdaed2c9ced32cf7c7dc2360f78"
+  integrity sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==
 
 concat-map@0.0.1:
   version "0.0.1"

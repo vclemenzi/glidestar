@@ -2,6 +2,7 @@
   "name": "glidestar",
   "version": "1.0.0",
   "description": "Make api just better",
+  "types": "index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "ts-node-dev ./test/index.ts"
@@ -11,12 +12,14 @@
   "author": "Valerio Clemenzi",
   "license": "MIT",
   "devDependencies": {
+    "@types/colors": "^1.2.1",
     "@types/cookie": "^0.5.1",
     "@types/node": "^18.15.5",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.0.2"
   },
   "dependencies": {
+    "colors.js": "^1.2.4",
     "cookie": "^0.5.0"
   }
 }
