@@ -4,6 +4,7 @@ import { reader } from "./reader";
 import { clean } from "./clean";
 import path from "path";
 import { Request } from "../parser/Request";
+import { Response } from "../parser/Response";
 
 // TODO: use 'url' module to parse the url
 
@@ -36,13 +37,13 @@ export function server(config: Config, callback?: (err: Error | null) => void) {
           const instance = new module.default();
 
           if (req.method === "GET") { 
-            instance.get(new Request(req, params), res);
+            instance.get(new Request(req, params), new Response(res));
           } else if (req.method === "POST") {
-            instance.post(new Request(req, params), res);
+            instance.post(new Request(req, params), new Response(res));
           } else if (req.method === "PUT") {
-            instance.put(new Request(req, params), res);
+            instance.put(new Request(req, params), new Response(res));
           } else if (req.method === "DELETE") {
-            instance.delete(new Request(req, params), res);
+            instance.delete(new Request(req, params), new Response(res));
           } else {
             res.statusCode = 404;
             res.end();

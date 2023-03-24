@@ -11,8 +11,12 @@
   "author": "Valerio Clemenzi",
   "license": "MIT",
   "devDependencies": {
+    "@types/cookie": "^0.5.1",
     "@types/node": "^18.15.5",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "cookie": "^0.5.0"
   }
 }
