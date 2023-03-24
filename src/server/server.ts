@@ -15,9 +15,9 @@ export function server(config: Config, callback?: (err: Error | null) => void) {
     // /users == /users
     if ((req.url as string).endsWith("/") && (req.url as string).length > 1) {
       req.url = (req.url as string).slice(0, -1);
-    } 
-    
-    // Params 
+    }
+
+    // Params
     let params: string[] = [];
 
     if (req.url?.includes("?")) {
@@ -36,7 +36,11 @@ export function server(config: Config, callback?: (err: Error | null) => void) {
         result.then((module) => {
           const instance = new module.default();
 
-          if (req.method === "GET") { 
+          if (instance.first) {
+            instance.first(new Request(req, params), new Response(res));
+          }
+
+          if (req.method === "GET") {
             instance.get(new Request(req, params), new Response(res));
           } else if (req.method === "POST") {
             instance.post(new Request(req, params), new Response(res));
