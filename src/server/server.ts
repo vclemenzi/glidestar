@@ -62,7 +62,7 @@ export function server(config: Config, callback?: (err: Error | null) => void) {
   });
 
   server.listen(config.port || 8080, () => {
-    logServer(config.port)
+    logServer(config.port);
     if (callback) {
       callback(null);
     }
